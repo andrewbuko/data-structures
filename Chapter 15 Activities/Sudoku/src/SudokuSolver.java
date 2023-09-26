@@ -36,10 +36,11 @@ public class SudokuSolver {
         }
 
         // create the list of sets for each row (this.rows)
+        this.rows = new ArrayList<>();
         for(int i = 0;i<N;i++)
         {
             Set<Integer> roww = new HashSet<Integer>() ;
-            for(int j = 0;i<N;j++)
+            for(int j = 0;j<N;j++)
             {
                roww.add(this.grid[i][j]); 
             }
@@ -47,10 +48,11 @@ public class SudokuSolver {
         }
 
         // create the list of sets for each col (this.cols)
+        this.cols = new ArrayList<>();
         for(int i = 0;i<N;i++)
         {
             Set<Integer> coll = new HashSet<Integer>() ;
-            for(int j = 0;i<N;j++)
+            for(int j = 0;j<N;j++)
             {
                coll.add(this.grid[j][i]); 
             }
@@ -63,10 +65,11 @@ public class SudokuSolver {
             3 4 5
             6 7 8
          */
+        this.squares = new ArrayList<>();
         for(int i = 0;i<N;i++)
         {
             Set<Integer> squaree = new HashSet<Integer>() ;
-            for(int j = 0;i<N;j++)
+            for(int j = 0;j<N;j++)
             {
                squaree.add(this.grid[(i/3)*3+j%3][(i%3)*3+j/3]); 
             }
@@ -122,8 +125,10 @@ public class SudokuSolver {
          */
         Set<Integer> possibleNums = new HashSet<Integer>();
         possibleNums.addAll(this.nums);
-        
-        // ...
+        for(int numberr : possibleNums)
+        {
+            if()
+        }
 
         // if there are no possible numbers, we cannot solve the board in its current state
         if (possibleNums.isEmpty()) {
@@ -167,7 +172,7 @@ public class SudokuSolver {
     }
 
     public static void main(String[] args) {
-        String fileName = "src/puzzle1.txt";
+        String fileName = "Chapter 15 Activities\\Sudoku\\src\\puzzle1.txt";
 
         SudokuSolver solver = new SudokuSolver(fileName);
         System.out.println(solver);
