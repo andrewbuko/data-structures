@@ -123,11 +123,10 @@ public class SudokuSolver {
             Properly indexing the squares list of sets is tricky. Verify that your
             algorithm is correct.
          */
-        Set<Integer> possibleNums = new HashSet<Integer>();
-        possibleNums.addAll(this.nums);
+        Set<Integer> possibleNums = new HashSet<Integer>(this.nums);
         possibleNums.removeAll(this.rows.get(nextRow));
         possibleNums.removeAll(this.rows.get(nextRow));
-        int nextSquare = M*(nextRow / M) + (nextCol / M);
+        int nextSquare = nextRow / M*M + (nextCol / M);
         possibleNums.removeAll(this.rows.get(nextSquare));
 
         // if there are no possible numbers, we cannot solve the board in its current state
