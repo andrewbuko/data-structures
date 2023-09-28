@@ -125,10 +125,10 @@ public class SudokuSolver {
          */
         Set<Integer> possibleNums = new HashSet<Integer>();
         possibleNums.addAll(this.nums);
-        for(int numberr : possibleNums)
-        {
-            if()
-        }
+        possibleNums.removeAll(this.rows.get(nextRow));
+        possibleNums.removeAll(this.rows.get(nextRow));
+        int nextSquare = M*(nextRow / M) + (nextCol / M);
+        possibleNUms.removeAll(this.rows.get(nextSquare));
 
         // if there are no possible numbers, we cannot solve the board in its current state
         if (possibleNums.isEmpty()) {
@@ -138,7 +138,10 @@ public class SudokuSolver {
         // try each possible number
         for (Integer possibleNum : possibleNums) {
             // update the grid and all three corresponding sets with possibleNum
-            // ...
+            this.grid[nextRow][nextCol] = possibleNum;
+            this.rows.get(nextRow).add(possibleNum);
+            this.cols.get(nextCol).add(possibleNum);
+            this.squares.get(nextSquare).add(possibleNum);
 
             // recursively solve the board
             if (this.solve()) {
@@ -150,7 +153,10 @@ public class SudokuSolver {
                  element in the grid back to 0 and removing possibleNum from all three corresponding
                  sets.
                  */
-                // ...
+                this.grid[nextRow][nextCol] = 0;
+                this.rows.get(nextRow).remove(possibleNum);
+                this.cols.get(nextCol).remove(possibleNum);
+                this.squares.get(nextSquare).remove(possibleNum);
             }
         }
 
