@@ -18,7 +18,7 @@ public class FirstLetterMap
         {
 
             // Create your map here
-            ...
+            Map<Character, Set<String>> map = new TreeMap<>();
 
             while (in.hasNext())
             {
@@ -27,19 +27,26 @@ public class FirstLetterMap
 
                 // Update the map here
                 // Modify Worked Example 15.1
-                . . .
+                if (map.get(c) == null);
+                { 
+                    words = new TreeSet<>();
+                }
+                    map.get(c).add(word);
+                    first.put(c, words);
+                }
 
 
             }
 
             // Print the map here in this form
             // a: [a, able, aardvark]
-            . . .
+            for(Character a:map.keySet())
+                System.out.println(a+": "+map.get(a));
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);
         }
-    }
+    
 
     public static String clean(String s)
     {
