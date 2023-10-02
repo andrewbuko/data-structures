@@ -26,8 +26,8 @@ public class FirstLetterMap
                 Character c = word.charAt(0);
                 Set<String> qu = new HashSet<>();
                 // Update the map here
-                qu.add(word)
-                map.merge(c,que, orig ->orig.add(word));
+                qu.add(word);
+                map.merge(c,qu, orig -> orig.add(word));
 
             }
 
