@@ -18,13 +18,21 @@ public class StringLengthMap
         {
 
             // Create your map here
-            
+            Map<Integer, Set<String> > map = new HashMap<>();
 
             while (in.hasNext())
             {
                 String word = clean(in.next());
                 Integer len = word.length();
+                Set<String> qu = new HashSet<>();
+                // Update the map here
+                qu.add(word);
+                map.merge(len,qu, orig -> orig.add(word));
 
+            }
+
+            for(Integer a:map.keySet())
+                System.out.println(a+": "+map.get(a));
                 // Update the map here
                 // Modify Worked Example 15.1
                 
@@ -32,8 +40,6 @@ public class StringLengthMap
 
             }
 
-            // Print the strings, in increasing order of their length
-            // Use this format: 1: i, a, i
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);
