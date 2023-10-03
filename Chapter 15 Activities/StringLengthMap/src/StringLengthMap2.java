@@ -17,23 +17,29 @@ public class StringLengthMap2
         try (Scanner in = new Scanner(new File(filename)))
         {
 
-            // Create your map here
-            
+            Map<Integer, Set<String>> map = new TreeMap<>();
 
             while (in.hasNext())
             {
                 String word = clean(in.next());
-                Integer len = word.length();
+                Integer c = word.length();
 
                 // Update the map here
-                // Use the Java 8 merge() method
-                
+                // Modify Worked Example 15.1
+                if (map.get(c) == null);
+                { 
+                    words = new TreeSet<>();
+                }
+                    map.get(c).add(word);
+                    first.put(c, words);
+                }
 
 
             }
 
-            // Print the strings, in increasing order of their length
-            // Use this format: 1: i, a, i
+            // Print the map here in this form
+            for(Integer a:map.keySet())
+                System.out.println(a+": "+map.get(a));
         } catch (FileNotFoundException e)
         {
             System.out.println("Cannot open: " + filename);
