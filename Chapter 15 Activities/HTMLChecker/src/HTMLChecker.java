@@ -22,7 +22,32 @@ public class HTMLChecker
         try (Scanner in = new Scanner(new File(filename)))
         {
             // Your code goes here
-            . . .
+            String nextt; String popped;
+            boolean valid = true;
+            Stack<String> tags = new Stack<>();
+            while(in.hasNext() && valid)
+            {
+                nextt = in.next();
+                if(!nextt.contains("/"))
+                    tags.push(nextt);
+                else
+                {
+                    if(!tags.isEmpty())
+                        nextt.replace("/","");
+                        popped = tags.pop();
+                        if(nextt.equals(popped))
+                        {;}
+                        else
+                            valid = false;
+                    else
+                        valid = false;        
+                }
+
+            }
+            if(valid)
+                System.out.println("The sequence is properly nested");
+            else
+                System.out.println("The sequence is not properly nested");
 
 
         } catch (FileNotFoundException e)
