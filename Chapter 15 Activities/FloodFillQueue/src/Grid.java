@@ -10,7 +10,40 @@ public class Grid
     */
     public void floodfill(int row, int column)
     {
-        . . .
+        Pair pair;
+        int number = 1;
+        pair = new Pair(row,column);
+        Stack<Pair> pairstack = new Stack<>();
+        pairstack.push(pair);
+        while(pairstack.size()>0)
+            {
+               pair = pairstack.pop();
+            if(pixels[pair.getRow()][pair.getColumn()] == 0)
+            {
+                pixels[pair.getRow()][pair.getColumn()] = number;
+                number++;
+            }
+            if(pair.getRow() - 1 >= 0 && pixels[pair.getRow()-1][pair.getColumn()] == 0)
+            {
+                pairstack.push(new Pair(pair.getRow()-1,pair.getColumn()));
+            }
+            if(pair.getColumn() + 1 < SIZE && pixels[pair.getRow()][pair.getColumn()+1] == 0)
+            {
+                pairstack.push(new Pair(pair.getRow(),pair.getColumn()+1));
+            }
+            if(pair.getRow() + 1 < SIZE && pixels[pair.getRow()+1][pair.getColumn()] == 0)
+            {
+                pairstack.push(new Pair(pair.getRow() + 1,pair.getColumn()));
+            }
+            if(pair.getColumn() - 1 >= 0 && pixels[pair.getRow()][pair.getColumn()-1] == 0)
+            {
+                pairstack.push(new Pair(pair.getRow(),pair.getColumn()-1));
+            }
+
+
+            }
+        
+        
     }
 
     public String toString()
