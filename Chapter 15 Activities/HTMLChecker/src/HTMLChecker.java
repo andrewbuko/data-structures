@@ -33,12 +33,14 @@ public class HTMLChecker
                 else
                 {
                     if(!tags.isEmpty())
+                    {
                         nextt.replace("/","");
                         popped = tags.pop();
                         if(nextt.equals(popped))
                         {;}
                         else
                             valid = false;
+                    }   
                     else
                         valid = false;        
                 }
