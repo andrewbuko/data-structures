@@ -24,7 +24,15 @@ public class LinkedList
     */
     public int size()
     {
-        . . .
+        int count = 0;
+        Node a = first;
+        while (a != null)
+        {
+            a = a.next;
+            count++;
+        }
+
+        return count;
     }
 
     /**
