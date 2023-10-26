@@ -26,9 +26,14 @@ public class LinkedList
     */
     public int size()
     {
-        . . .
+        return bald(first);
     }
-
+    private static int bald(Node place){
+        if (place == null)
+            return 0;
+        else
+            return 1 + bald(place.next);
+    }
 
     /**
         Returns the first element in the linked list.
