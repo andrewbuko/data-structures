@@ -1,0 +1,16 @@
+.typeimg {
+    width: 100px;
+    height: 100px;
+    float: left;
+  }
+  
+  .title a {
+    color: teal;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 0px;
+    line-height: 25px;
+  }
+  
+  
