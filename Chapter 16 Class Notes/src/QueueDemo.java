@@ -11,8 +11,8 @@ public class QueueDemo
     public static void main(String[] args)
         throws FileNotFoundException
     {
-        ArrayList<String> strings = new Arraylist<String>(
-            Arrays.asList("zero","one","two","three","four","five","six","seven","eight","nine"));
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add("zero","one","two","three","four","five","six","seven","eight","nine");
         ArrayList<String> split = readWords("Chapter 16 Class Notes/src/words.txt");
         int total = 0; int firstdigit; int seconddigit;
         for(String s : split)
